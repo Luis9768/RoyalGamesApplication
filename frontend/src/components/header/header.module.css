@@ -1,0 +1,121 @@
+#header_container {
+  background-color: var(--fundo-roxo-escuro, #221c2d);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  border-bottom: 1px solid rgba(255, 0, 76, 0.2);
+}
+
+.logo_link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+#imagem {
+  height: 60px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+#direita {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+#botao_catalogo {
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 8px 18px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--fonte-titulo, sans-serif);
+}
+
+#botao_catalogo:hover {
+  border-color: #ff004c;
+  color: #ff004c;
+}
+
+#botao_login {
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: linear-gradient(135deg, #ff004c 0%, #d4003f 100%);
+  color: white;
+  padding: 8px 22px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--fonte-titulo, sans-serif);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 3px 10px rgba(255, 0, 76, 0.3);
+}
+
+#botao_login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 76, 0.5);
+}
+
+.botao_novo {
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  background: linear-gradient(135deg, #7a3bff 0%, #5020b8 100%);
+  color: white;
+  padding: 8px 18px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--fonte-titulo, sans-serif);
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 3px 10px rgba(122, 59, 255, 0.3);
+}
+
+.botao_novo:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(122, 59, 255, 0.5);
+}
+
+.botao_logout {
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 400;
+  background-color: transparent;
+  color: #a09cb0;
+  padding: 8px 14px;
+  border: 1px solid #433c54;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.botao_logout:hover {
+  border-color: #ff004c;
+  color: #ff004c;
+}
+
+@media (max-width: 768px) {
+  #header_container {
+    padding: 15px 20px;
+  }
+
+  #imagem {
+    height: 45px;
+  }
+
+  #direita {
+    gap: 10px;
+  }
+
+  #botao_catalogo, #botao_login, .botao_novo, .botao_logout {
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
+}

@@ -1,0 +1,116 @@
+.card_produto {
+  background-color: var(--fundo-roxo-escuro, #221c2d);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(107, 106, 106, 0.384);
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  border-radius: 13px;
+  padding: 25px 20px;
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+  box-sizing: border-box;
+}
+
+.card_produto:hover {
+  transform: translateY(-5px);
+  border-color: #ff004c;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.imagem_link {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.imagem_card {
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.imagem_card:hover {
+  transform: scale(1.03);
+}
+
+.titulo {
+  color: white;
+  margin-top: 15px;
+  font-size: 1.4rem;
+  font-family: var(--fonte-titulo, sans-serif);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+}
+
+.preco {
+  color: #ff004c;
+  font-family: var(--fonte-titulo, sans-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 8px;
+}
+
+.botoesContainer {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.detalhes {
+  color: white;
+  background-color: var(--fundo-vermelho-destaque, #ff004c);
+  padding: 8px 18px;
+  border-radius: 6px;
+  border: none;
+  font-family: var(--fonte-titulo, sans-serif);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.detalhes:hover {
+  background-color: #d6003d;
+}
+
+.btnEditar {
+  color: white;
+  background-color: #7a3bff;
+  padding: 8px 14px;
+  border-radius: 6px;
+  border: none;
+  font-family: var(--fonte-titulo, sans-serif);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnEditar:hover {
+  background-color: #5c1fe6;
+}
+
+.btnExcluir {
+  color: #ffffff;
+  background-color: #3b2b36;
+  border: 1px solid #ff004c;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btnExcluir:hover {
+  background-color: #ff004c;
+}

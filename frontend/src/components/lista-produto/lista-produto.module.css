@@ -1,0 +1,121 @@
+/* Fundo geral e configurações base */
+.container {
+  background-color: #232034;
+  color: #ffffff;
+  padding: 40px 20px;
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+.titulo {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: normal;
+  margin-bottom: 40px;
+}
+
+.titulo::after {
+  content: "";
+  display: block;
+  width: 250px;
+  height: 1px;
+  background-color: #ff2759;
+  margin: 10px auto 0;
+}
+
+#filtros {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 40px;
+  font-family: var(--fonte-padrao);
+  width: 100%;
+  max-width: 900px; /* Alinha o limite dos filtros com o limite do grid */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.campoPesquisa input {
+  width: 350px;
+  padding: 10px 15px;
+  background-color: #434155;
+  border: 1px solid #434155;
+  border-radius: 4px;
+  color: #ffffff;
+  outline: none;
+}
+
+.campoPesquisa input::placeholder {
+  color: #a0a0a0;
+}
+
+.botao {
+  padding: 10px 15px;
+  background-color: #434155;
+  border: 1px solid #434155;
+  border-radius: 4px;
+  color: #ffffff;
+  cursor: pointer;
+  min-width: 140px;
+  outline: none;
+}
+
+/* Efeito de foco amarelo */
+.botao:focus, .campoPesquisa input:focus {
+  border: 1px solid #ffc107;
+}
+
+/* Grid onde os cards vão ficar */
+.gridProdutos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (RESPONSIVIDADE)
+   ========================================================================== */
+
+/* Ajustes para Tablets (telas até 900px) */
+@media (max-width: 900px) {
+  .gridProdutos {
+    grid-template-columns: repeat(2, 1fr); /* Passa de 3 para 2 colunas */
+    gap: 20px;
+  }
+
+  #filtros {
+    flex-direction: column; /* Empilha a barra de pesquisa e os botões */
+    align-items: stretch;   /* Força os elementos a ocuparem a largura disponível */
+    gap: 20px;
+  }
+
+  .campoPesquisa, .campoPesquisa input {
+    width: 100%; /* O input deixa de ser fixo em 350px e se adapta à tela */
+  }
+
+  .botao {
+    width: 100%; /* Opcional: faz os botões se esticarem no tablet/mobile */
+  }
+}
+
+/* Ajustes para Celulares (telas até 600px) */
+@media (max-width: 600px) {
+  .gridProdutos {
+    grid-template-columns: 1fr; /* Apenas 1 coluna para os cards não ficarem esmagados */
+  }
+
+  .titulo {
+    font-size: 1.5rem; /* Diminui um pouco o tamanho do título principal */
+  }
+
+  .titulo::after {
+    width: 180px; /* Reduz a linha decorativa vermelha para acompanhar o título menor */
+  }
+  
+  .container {
+    padding: 30px 15px; /* Reduz as margens externas para dar mais espaço ao conteúdo */
+  }
+}

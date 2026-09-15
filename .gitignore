@@ -1,0 +1,28 @@
+# IDEs and Editors
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# Build artifacts - .NET
+**/bin/
+**/obj/
+
+# Dependencies and build - Node / Next.js
+**/node_modules/
+**/.next/
+**/out/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database & Docker volumes
+pgdata/
+*.db
+*.sqlite
+
+# OS generated files
+Thumbs.db
+[Dd]esktop.ini
+.DS_Store

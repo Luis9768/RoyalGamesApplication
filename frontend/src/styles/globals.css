@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    font-family: var(--fonte-padrao);
+}
+
+:root{
+    --fundo-escuro: #0b0616;
+    --fundo-roxo-escuro: #221c2d;
+    --fundo-vermelho-destaque: #ff004c;
+    --fundo-roxo-destaque: #7a3bff;
+    --fundo-branco: #ffffff
+    --fundo-cinza: #d6d2e6
+}
+.layout_guide{
+    width: 80%;
+}

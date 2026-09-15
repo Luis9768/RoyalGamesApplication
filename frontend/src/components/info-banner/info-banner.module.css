@@ -1,0 +1,104 @@
+.secao_curiosidade {
+    background: 
+        linear-gradient(to bottom, #221c2d 0%, transparent 150px),
+        linear-gradient(to right, #130e1a 0%, #331f55 50%, #130e1a 100%);
+    
+    padding: 80px 0 40px 0; 
+    width: 100%;
+}
+.container_curiosidade {
+    max-width: 1550px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo_curiosidade {
+    font-family: var(--font-titulo);
+    color: #f5f5f5;
+    font-size: 1.8rem;
+    font-weight: 300;
+    margin: 0 0 15px 0;
+    text-align: center;
+}
+
+.linha_decorativa_larga {
+    width: 100%;
+    max-width: 1000px;
+    height: 1px;
+    background: linear-gradient(90deg, rgba(250, 16, 75, 0) 0%, #FA104B 50%, rgba(250, 16, 75, 0) 100%);
+    margin-bottom: 40px;
+    box-shadow: 0 0 8px rgba(250, 16, 75, 0.4);
+}
+
+.box_imagens {
+    background-color: rgba(35, 29, 46, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 8px;
+    padding: 50px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; 
+    
+    width: 100%;
+    max-width: 1000px;
+    margin-bottom: 40px;
+    
+  
+    box-shadow: 
+        inset 10px 10px 20px rgba(0, 0, 0, 0.1),      
+        inset -2px -2px 8px rgba(255, 255, 255, 0.05),
+        0 15px 30px rgba(0, 0, 0, 0.1);               
+}
+.img_jogo_logo {
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+
+    filter: drop-shadow(0px 10px 15px rgba(0, 0, 0, 0.5));
+}
+
+.texto_curiosidade {
+    font-family: var(--font-padrao);
+    color: #f5f5f5;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.6;
+    text-align: center;
+    max-width: 800px;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+    .box_imagens {
+        gap: 40px;
+        padding: 40px 20px;
+    }
+    
+    .img_jogo_logo {
+        max-width: 250px;
+    }
+}
+
+@media (max-width: 650px) {
+    .box_imagens {
+        flex-direction: column;
+        gap: 50px;
+    }
+    
+    .titulo_curiosidade {
+        font-size: 1.4rem;
+    }
+
+    .texto_curiosidade {
+        font-size: 1rem;
+    }
+}
+
+
+
