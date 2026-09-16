@@ -215,7 +215,7 @@ export default function CadastroJogo() {
           <form className={styles.formulario} onSubmit={handleSubmit}>
             {/* Nome do Jogo */}
             <div className={styles.campo}>
-              <label htmlFor="nome">Título do Jogo *</label>
+              <label htmlFor="nome">Título do Jogo</label>
               <input
                 id="nome"
                 type="text"
@@ -229,7 +229,7 @@ export default function CadastroJogo() {
             {/* Preço e Classificação Indicativa */}
             <div className={styles.linhaDupla}>
               <div className={styles.campo}>
-                <label htmlFor="preco">Preço (R$) *</label>
+                <label htmlFor="preco">Preço (R$)</label>
                 <input
                   id="preco"
                   type="number"
@@ -243,7 +243,7 @@ export default function CadastroJogo() {
               </div>
 
               <div className={styles.campo}>
-                <label htmlFor="classificacao">Classificação Indicativa *</label>
+                <label htmlFor="classificacao">Classificação Indicativa</label>
                 <select
                   id="classificacao"
                   value={classificacaoId}
@@ -262,7 +262,7 @@ export default function CadastroJogo() {
 
             {/* Descrição */}
             <div className={styles.campo}>
-              <label htmlFor="descricao">Descrição Completa *</label>
+              <label htmlFor="descricao">Descrição Completa</label>
               <textarea
                 id="descricao"
                 value={descricao}
@@ -274,7 +274,7 @@ export default function CadastroJogo() {
 
             {/* Upload de Imagem */}
             <div className={styles.campo}>
-              <label>Imagem da Capa {isEdicao ? "(Opcional para manter a atual)" : "*"} </label>
+              <label>Imagem da Capa {isEdicao ? "(Opcional para manter a atual)" : ""}</label>
               <input
                 type="file"
                 ref={fileInputRef}
@@ -308,7 +308,7 @@ export default function CadastroJogo() {
 
             {/* Gêneros */}
             <div className={styles.campo}>
-              <label>Gêneros (Selecione ao menos um) *</label>
+              <label>Gêneros (Selecione ao menos um)</label>
               <div className={styles.chipsGrid}>
                 {generos.map((gen) => {
                   const selecionado = generosSelecionados.includes(gen.generoId);
@@ -328,7 +328,7 @@ export default function CadastroJogo() {
 
             {/* Plataformas */}
             <div className={styles.campo}>
-              <label>Plataformas Disponíveis *</label>
+              <label>Plataformas Disponíveis</label>
               <div className={styles.chipsGrid}>
                 {plataformas.map((plat) => {
                   const selecionada = plataformasSelecionadas.includes(plat.plataformaId);
