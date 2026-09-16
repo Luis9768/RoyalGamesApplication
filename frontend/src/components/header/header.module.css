@@ -1,121 +1,234 @@
-#header_container {
-  background-color: var(--fundo-roxo-escuro, #221c2d);
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: rgba(34, 28, 45, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 0, 76, 0.25);
+  width: 100%;
+}
+
+.container {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 12px 30px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 50px;
-  border-bottom: 1px solid rgba(255, 0, 76, 0.2);
 }
 
 .logo_link {
   display: flex;
   align-items: center;
   text-decoration: none;
+  transition: transform 0.2s ease;
 }
 
-#imagem {
-  height: 60px;
+.logo_link:hover {
+  transform: scale(1.03);
+}
+
+.logo_imagem {
+  height: 48px;
+  max-width: 180px;
   object-fit: contain;
-  cursor: pointer;
 }
 
-#direita {
+/* Navegação Desktop */
+.nav_desktop {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
-#botao_catalogo {
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 400;
+.botao_catalogo {
   background-color: transparent;
   color: #ffffff;
-  padding: 8px 18px;
   border: 1px solid transparent;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-family: var(--fonte-titulo, sans-serif);
-}
-
-#botao_catalogo:hover {
-  border-color: #ff004c;
-  color: #ff004c;
-}
-
-#botao_login {
-  text-decoration: none;
+  padding: 8px 18px;
   border-radius: 8px;
-  font-size: 1.1rem;
-  font-weight: 500;
-  background: linear-gradient(135deg, #ff004c 0%, #d4003f 100%);
-  color: white;
-  padding: 8px 22px;
-  border: none;
-  cursor: pointer;
   font-family: var(--fonte-titulo, sans-serif);
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 3px 10px rgba(255, 0, 76, 0.3);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-#botao_login:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 0, 76, 0.5);
+.botao_catalogo:hover {
+  color: #ff004c;
+  border-color: rgba(255, 0, 76, 0.5);
+  background-color: rgba(255, 0, 76, 0.08);
 }
 
 .botao_novo {
-  text-decoration: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  font-weight: 600;
   background: linear-gradient(135deg, #7a3bff 0%, #5020b8 100%);
-  color: white;
-  padding: 8px 18px;
+  color: #ffffff;
   border: none;
-  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 8px;
   font-family: var(--fonte-titulo, sans-serif);
-  transition: transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 3px 10px rgba(122, 59, 255, 0.3);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(122, 59, 255, 0.35);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .botao_novo:hover {
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(122, 59, 255, 0.5);
+  box-shadow: 0 6px 18px rgba(122, 59, 255, 0.5);
+}
+
+.botao_login {
+  background: linear-gradient(135deg, #ff004c 0%, #d4003f 100%);
+  color: #ffffff;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 8px;
+  font-family: var(--fonte-titulo, sans-serif);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(255, 0, 76, 0.35);
+}
+
+.botao_login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(255, 0, 76, 0.5);
 }
 
 .botao_logout {
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 400;
-  background-color: transparent;
-  color: #a09cb0;
-  padding: 8px 14px;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #d6d2e6;
   border: 1px solid #433c54;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.2s ease;
 }
 
 .botao_logout:hover {
   border-color: #ff004c;
   color: #ff004c;
+  background-color: rgba(255, 0, 76, 0.1);
 }
 
+/* Botão Hambúrguer Mobile */
+.btn_hamburguer {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 40px;
+  height: 40px;
+  background-color: #2b2538;
+  border: 1px solid #433c54;
+  border-radius: 8px;
+  padding: 9px 8px;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.btn_hamburguer:hover {
+  border-color: #ff004c;
+  background-color: #352d44;
+}
+
+.linha_hamburguer {
+  width: 100%;
+  height: 2.5px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animação para o ícone virar X quando aberto */
+.hamburguer_aberto .linha1 {
+  transform: translateY(7.5px) rotate(45deg);
+  background-color: #ff004c;
+}
+
+.hamburguer_aberto .linha2 {
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.hamburguer_aberto .linha3 {
+  transform: translateY(-7.5px) rotate(-45deg);
+  background-color: #ff004c;
+}
+
+/* Menu Dropdown Mobile */
+.menu_mobile {
+  display: none;
+  flex-direction: column;
+  background-color: #1d1727;
+  border-top: 1px solid rgba(255, 0, 76, 0.2);
+  border-bottom: 2px solid #ff004c;
+  padding: 16px 20px;
+  gap: 12px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+  animation: slideDown 0.25s ease-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.menu_mobile_aberto {
+  display: flex;
+}
+
+.item_mobile {
+  width: 100%;
+  display: block;
+  text-decoration: none;
+}
+
+.btn_mobile_item {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-family: var(--fonte-titulo, sans-serif);
+  font-size: 1rem;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-sizing: border-box;
+}
+
+/* Breakpoint Responsivo (< 768px) */
 @media (max-width: 768px) {
-  #header_container {
-    padding: 15px 20px;
+  .container {
+    padding: 10px 16px;
   }
 
-  #imagem {
-    height: 45px;
+  .logo_imagem {
+    height: 38px;
+    max-width: 140px;
   }
 
-  #direita {
-    gap: 10px;
+  .nav_desktop {
+    display: none; /* Oculta menu horizontal no mobile */
   }
 
-  #botao_catalogo, #botao_login, .botao_novo, .botao_logout {
-    font-size: 0.9rem;
-    padding: 6px 12px;
+  .btn_hamburguer {
+    display: flex; /* Exibe o botão hambúrguer */
   }
 }
