@@ -107,7 +107,8 @@ namespace RoyalGamess.Aplications.Services
 
         public LerJogoDto Atualizar(AtualizarJogoDto jogoDto, int id)
         {
-            HorarioAlteracaoJogo.ValidarHorario();
+            // Validação de horário desativada para permitir atualização a qualquer hora
+            // HorarioAlteracaoJogo.ValidarHorario();
 
             Jogo jogoBanco = _repository.ObterPorId(id);
 
@@ -115,7 +116,7 @@ namespace RoyalGamess.Aplications.Services
                 throw new DomainException("Jogo não encontrado");
 
             if (_repository.NomeJogoExiste(jogoDto.Nome, jogoId: id))
-                throw new DomainException("Jogo não encontrado");
+                throw new DomainException("Já existe outro jogo cadastrado com este nome");
 
             if (jogoDto.plataformaIds == null || jogoDto.plataformaIds.Count == 0)
                 throw new DomainException("Jogo não possui plataforma");
@@ -123,16 +124,21 @@ namespace RoyalGamess.Aplications.Services
             if (jogoDto.classificacaoId == 0)
                 throw new DomainException("Jogo não possui classificação");
 
-            if(jogoDto.generoIds == null || jogoDto.generoIds.Count == 0)
+            if (jogoDto.generoIds == null || jogoDto.generoIds.Count == 0)
                 throw new DomainException("Jogo não possui gênero");
+
             if (jogoDto.Preco < 0)
                 throw new DomainException("Jogo tem que ter Preco");
 
             jogoBanco.Nome = jogoDto.Nome;
             jogoBanco.Descricao = jogoDto.Descricao;
             jogoBanco.Preco = jogoDto.Preco;
-            if (jogoBanco.Imagem != null && jogoBanco.Imagem.Length > 0)
-            jogoBanco.Imagem = ImagemParaByte.ConverterImagem(jogoDto.Imagem);
+            jogoBanco.ClassificaçãoIdFK = jogoDto.classificacaoId;
+
+            if (jogoDto.Imagem != null && jogoDto.Imagem.Length > 0)
+            {
+                jogoBanco.Imagem = ImagemParaByte.ConverterImagem(jogoDto.Imagem);
+            }
 
             if (jogoBanco.StatusJogo.HasValue)
                 jogoBanco.StatusJogo = jogoDto.StatusJogo;

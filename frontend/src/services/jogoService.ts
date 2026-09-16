@@ -36,11 +36,13 @@ export interface Genero {
 // Converte retorno bruto da API para o tipo padronizado Jogo
 function normalizarJogo(raw: any): Jogo {
   const imgBruta = raw.imagemURL || raw.imagemUrl || raw.imagem;
+  const precoRaw = raw.preco ?? raw.Preco ?? 0;
+  const precoNumerico = typeof precoRaw === "number" ? precoRaw : parseFloat(precoRaw.toString().replace(",", ".")) || 0;
   return {
     jogoId: raw.jogoId ?? raw.JogoId ?? raw.id ?? 0,
     nome: raw.nome ?? raw.Nome ?? "",
     descricao: raw.descricao ?? raw.Descricao ?? "",
-    preco: typeof raw.preco === "number" ? raw.preco : parseFloat(raw.preco || raw.Preco || 0),
+    preco: precoNumerico,
     statusJogo: raw.statusJogo ?? raw.StatusJogo ?? true,
     imagemUrl: resolveImageUrl(imgBruta),
     plataformaIds: raw.plataformaIds ?? raw.PlataformaIds ?? [],
@@ -80,7 +82,7 @@ export async function cadastrarJogo(dados: JogoFormulario): Promise<void> {
     const formData = new FormData();
     formData.append("nome", dados.nome);
     formData.append("descricao", dados.descricao);
-    formData.append("preco", dados.preco.toString());
+    formData.append("preco", dados.preco.toString().replace(",", "."));
     formData.append("statusJogo", dados.statusJogo ? "true" : "false");
 
     if (dados.imagem) {
@@ -116,7 +118,7 @@ export async function editarJogo(jogoId: number, dados: JogoFormulario): Promise
     const formData = new FormData();
     formData.append("nome", dados.nome);
     formData.append("descricao", dados.descricao);
-    formData.append("preco", dados.preco.toString());
+    formData.append("preco", dados.preco.toString().replace(",", "."));
     formData.append("statusJogo", dados.statusJogo ? "true" : "false");
 
     if (dados.imagem) {

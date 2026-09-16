@@ -1,4 +1,4 @@
-﻿using RoyalGamess.Aplications.DTOs.JogoDto;
+using RoyalGamess.Aplications.DTOs.JogoDto;
 using RoyalGamess.Domains;
 
 namespace RoyalGamess.Aplications.Conversões
@@ -13,6 +13,7 @@ namespace RoyalGamess.Aplications.Conversões
                 JogoId = jogo.JogoId,
                 Nome = jogo.Nome,
                 Descricao = jogo.Descricao,
+                Preco = jogo.Preco ?? 0,
                 StatusJogo = jogo.StatusJogo ?? true,
                 // StatusJogo = jogo.StatusJogo,
                 plataformaIds = jogo.PlataformaIdFK.Select(id => id.PlataformaId).ToList(),

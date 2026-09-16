@@ -140,7 +140,7 @@ export default function CadastroJogo() {
       erro("A descrição do jogo é obrigatória!");
       return;
     }
-    const precoNum = parseFloat(preco);
+    const precoNum = parseFloat(preco.toString().replace(",", "."));
     if (isNaN(precoNum) || precoNum <= 0) {
       erro("Informe um preço válido maior que zero!");
       return;
