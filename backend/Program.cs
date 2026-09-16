@@ -173,7 +173,7 @@ app.UseSwaggerUI(c =>
 });
 
 // Ordem correta de middlewares no ASP.NET Core
-app.UseCors("CorsPolicy");
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 app.UseAuthorization();
